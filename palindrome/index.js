@@ -5,7 +5,23 @@
 //   palindrome("Madam") === true
 //   palindrome("love") === false
 
-function palindrome(str) {}
+function palindrome(str) {
+  str = str.toLowerCase();
+
+  let j = str.length - 1;
+  for (let i = 0; i < str.length; i++) {
+    const frontPoint = str[i];
+    const endPoint = str[j];
+
+    if (frontPoint && endPoint && frontPoint !== endPoint) {
+      return false;
+    }
+
+    j--;
+  }
+
+  return true;
+}
 
 // _________ _______  _______ _________   _______  _______  _______  _______  _______
 // \__   __/(  ____ \(  ____ \\__   __/  (  ____ \(  ___  )(  ____ \(  ____ \(  ____ \
