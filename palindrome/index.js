@@ -23,6 +23,17 @@ function palindrome(str) {
   return true;
 }
 
+function palindrome(str) {
+  str = str.toLowerCase();
+  return (
+    str ===
+    str
+      .split("")
+      .reverse()
+      .join("")
+  );
+}
+
 // _________ _______  _______ _________   _______  _______  _______  _______  _______
 // \__   __/(  ____ \(  ____ \\__   __/  (  ____ \(  ___  )(  ____ \(  ____ \(  ____ \
 //    ) (   | (    \/| (    \/   ) (     | (    \/| (   ) || (    \/| (    \/| (    \/
