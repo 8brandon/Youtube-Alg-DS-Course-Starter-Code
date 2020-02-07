@@ -3,7 +3,50 @@
 // maxChar("I loveeeeeee noodles") === "e"
 // maxChar("1337") === "3"
 
-function maxChar(str) {}
+// function maxChar(str) {
+//   const map = new Map();
+
+//   for (let i = 0; i < str.length; i++) {
+//     const element = str[i];
+
+//     if (!map.get(element)) {
+//       map.set(element, 1);
+//     } else {
+//       map.set(element, map.get(element) + 1);
+//     }
+//   }
+
+//   let max = { result: "", value: 0 };
+
+//   map.forEach((value, key) => {
+//     if (value > max["value"]) {
+//       max["result"] = key;
+//       max["value"] = value;
+//     }
+//   });
+
+//   return max["result"];
+// }
+
+function maxChar(str) {
+  const map = new Map();
+  let max = 0;
+  let maxChar = "";
+
+  for (let i = 0; i < str.length; i++) {
+    const element = str[i];
+    const elementInMap = map.get(element);
+
+    map.set(element, elementInMap + 1 || 1);
+
+    if (elementInMap > max) {
+      maxChar = element;
+      max = elementInMap;
+    }
+  }
+
+  return maxChar;
+}
 
 // _________ _______  _______ _________   _______  _______  _______  _______  _______
 // \__   __/(  ____ \(  ____ \\__   __/  (  ____ \(  ___  )(  ____ \(  ____ \(  ____ \
